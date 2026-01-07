@@ -1,16 +1,21 @@
 class Xcauto < Formula
-  desc "Native iOS Simulator automation tool for HID input and accessibility"
+  desc "MCP server for iOS development automation"
   homepage "https://github.com/appgram/xcauto"
-  version "1.2.1"
+  version "1.0.0"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://api.github.com/repos/AppGram/xcauto/releases/assets/337445771",
+      url "https://api.github.com/repos/AppGram/xcauto/releases/assets/337456805",
           headers: ["Accept: application/octet-stream",
-                   "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", "")}"],
-          using: :nounzip
-      sha256 "496e94a7ce256371dea9377bc38db4aba39f79367cc4bec635f05cc4fa59ed9c"
+                   "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", "")}"]
+      sha256 "dca7fe3b5ffe5f69a2b062457b9675837f0d4319efcf1edb0e92894e3e837cfa"
+    end
+    on_intel do
+      url "https://api.github.com/repos/AppGram/xcauto/releases/assets/337456806",
+          headers: ["Accept: application/octet-stream",
+                   "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", "")}"]
+      sha256 "f9ae67b38cca74b83d1a1a304704bc4208fa3e5471bd6a24ffaea5671158b2a0"
     end
   end
 
@@ -18,9 +23,9 @@ class Xcauto < Formula
   depends_on macos: :ventura
 
   def install
-    system "tar", "-xzf", "xcauto-v1.2.1-darwin-arm64.tar.gz"
-    bin.install "xcauto"
-    (lib/"xcauto").install "Frameworks"
+    bin.install "bridge4simulator-xcauto" => "xcauto"
+    bin.install "ocr"
+    (lib/"xcauto").install "tools"
   end
 
   def caveats
@@ -30,17 +35,25 @@ class Xcauto < Formula
 
         export HOMEBREW_GITHUB_API_TOKEN=<your-github-token>
 
-      To use xcauto, add the following to your shell profile:
+      Run setup after installation:
 
-        export DYLD_FRAMEWORK_PATH="#{lib}/xcauto/Frameworks:$DYLD_FRAMEWORK_PATH"
+        xcauto setup
 
-      Then restart your terminal or run:
+      Configure for Claude Desktop by adding to:
+        ~/Library/Application Support/Claude/claude_desktop_config.json
 
-        source ~/.zshrc  # or ~/.bashrc
+        {
+          "mcpServers": {
+            "xcauto": {
+              "command": "#{bin}/xcauto",
+              "args": ["mcp"]
+            }
+          }
+        }
     EOS
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/xcauto --version")
+    assert_match version.to_s, shell_output("#{bin}/xcauto --version")
   end
 end
