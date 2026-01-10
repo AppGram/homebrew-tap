@@ -1,6 +1,6 @@
 cask "agentnotch" do
   version "1.1.1"
-  sha256 "6a5c0bf8ed6dd2fac018d02b584e3d7f53bac9fd61c3794d1fdccad665c63708"
+  sha256 "b682716958817189fa86c8026b0cffafceef5d34c0871f465fcb6f4910576dcc"
 
   url "https://github.com/AppGram/agentnotch/releases/download/v1.1.1/AgentNotch.zip"
   name "AgentNotch"
