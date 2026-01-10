@@ -1,17 +1,18 @@
 cask "agentnotch" do
-  version "1.1.0"
-  sha256 "4b524d5bb220c63c4f36bf496098358fcfa2884804cae10fd023a265d3f44f80"
+  version "1.1.1"
+  sha256 "6a5c0bf8ed6dd2fac018d02b584e3d7f53bac9fd61c3794d1fdccad665c63708"
 
-  url "https://github.com/AppGram/agentnotch/releases/download/v#{version}/AgentNotch.zip"
+  url "https://github.com/AppGram/agentnotch/releases/download/v1.1.1/AgentNotch.zip"
   name "AgentNotch"
-  desc "Real-time AI coding assistant telemetry in your Mac's notch"
+  desc "macOS menu bar app for AI coding assistant telemetry"
   homepage "https://github.com/AppGram/agentnotch"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: ">= :ventura"
 
   app "AgentNotch.app"
 
   zap trash: [
-    "~/Library/Preferences/com.nedimfakic.AgentNotch.plist",
+    "~/Library/Preferences/com.appgram.AgentNotch.plist",
+    "~/Library/Application Support/AgentNotch",
   ]
 end
