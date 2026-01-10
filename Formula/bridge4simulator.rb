@@ -10,12 +10,12 @@ class Bridge4simulator < Formula
   on_macos do
     on_arm do
       url "https://github.com/appgram/bridge4simulator/releases/download/v1.0.0/bridge4simulator-darwin-arm64.zip"
-      sha256 "f3c283cb5912faf0022b9c8406bf5a5e9b2c98f51e41b2a2c56a5ac34db66310"
+      sha256 "a313875a8490e9e57231604d4eb65486ab78a4bc26901e706488962e413dd3b3"
     end
 
     on_intel do
       url "https://github.com/appgram/bridge4simulator/releases/download/v1.0.0/bridge4simulator-darwin-amd64.zip"
-      sha256 "f178f238c687376137e25135c3a599841fa4999559b21c1990df885653ada2e3"
+      sha256 "57b6c2f915833e7122b9a4b43e3fdc6f1c3618253f121f89bbf95edf541fa3f5"
     end
   end
 
