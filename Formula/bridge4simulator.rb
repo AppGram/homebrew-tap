@@ -10,18 +10,22 @@ class Bridge4simulator < Formula
   on_macos do
     on_arm do
       url "https://github.com/appgram/bridge4simulator/releases/download/v1.0.0/bridge4simulator-darwin-arm64.zip"
-      sha256 "a313875a8490e9e57231604d4eb65486ab78a4bc26901e706488962e413dd3b3"
+      sha256 "d489a1019bf6a86a8b4b8cc6703873193687dc32314ba721b2fcb40bd197711d"
     end
 
     on_intel do
       url "https://github.com/appgram/bridge4simulator/releases/download/v1.0.0/bridge4simulator-darwin-amd64.zip"
-      sha256 "57b6c2f915833e7122b9a4b43e3fdc6f1c3618253f121f89bbf95edf541fa3f5"
+      sha256 "d36259b946ea5dc86ccc83e591c1e13eddd470a750d79d619a9a572b0857046b"
     end
   end
 
   def install
     bin.install "bridge4simulator"
     bin.install "ocr" if File.exist?("ocr")
+    # Install bundled tools (axe and Frameworks)
+    if File.directory?("tools")
+      (libexec/"tools").install Dir["tools/*"]
+    end
   end
 
   def caveats
