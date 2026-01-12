@@ -4,18 +4,18 @@
 class Bridge4simulator < Formula
   desc "iOS Simulator MCP Bridge for AI Agents"
   homepage "https://github.com/appgram/bridge4simulator"
-  version "1.0.0"
+  version "1.0.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/appgram/bridge4simulator/releases/download/v1.0.0/bridge4simulator-darwin-arm64.zip"
-      sha256 "d489a1019bf6a86a8b4b8cc6703873193687dc32314ba721b2fcb40bd197711d"
+      url "https://github.com/appgram/bridge4simulator/releases/download/v1.0.1/bridge4simulator-darwin-arm64.zip"
+      sha256 "5453f07c2932163fa572fa02ff2608c2c6a3b9d1afcae63636c09a09e77c3bb2"
     end
 
     on_intel do
-      url "https://github.com/appgram/bridge4simulator/releases/download/v1.0.0/bridge4simulator-darwin-amd64.zip"
-      sha256 "d36259b946ea5dc86ccc83e591c1e13eddd470a750d79d619a9a572b0857046b"
+      url "https://github.com/appgram/bridge4simulator/releases/download/v1.0.1/bridge4simulator-darwin-amd64.zip"
+      sha256 "526a98287c48789464ec1e4e5803b53a14e3d899e710a9439f1f502a4061a3f7"
     end
   end
 
