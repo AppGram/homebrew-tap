@@ -7,18 +7,36 @@ class Docs2md < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/AppGram/docs2md/releases/download/v1.0.0/docs2md-darwin-arm64.tar.gz"
-      sha256 "62aebf61596ba899673ba76c018f3abaeabe4a66abf52bc8c63968e4692a9319"
+      sha256 "fca0b6fc2c8d9ac5bd324f69f420055220a0992c910cc80af19a957f54991c22"
     elsif Hardware::CPU.intel?
       url "https://github.com/AppGram/docs2md/releases/download/v1.0.0/docs2md-darwin-x64.tar.gz"
-      sha256 "7da02aa51f7909108f3301588615a48f1932850c8842686dd3de6e169c7aa92e"
+      sha256 "4f70de8c69efdcf9a19008a182c0087543bf0adacf4d0f5fcf7001a0f17483a8"
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/AppGram/docs2md/releases/download/v1.0.0/docs2md-linux-arm64.tar.gz"
+      sha256 "a34abedc84daac6b257e3541704611581c782ed70d6a3e1685681b68b616e196"
+    elsif Hardware::CPU.intel?
+      url "https://github.com/AppGram/docs2md/releases/download/v1.0.0/docs2md-linux-x64.tar.gz"
+      sha256 "a2b1c2075e8b9beb277b4f798656af30047cb3775195c9a03fb95cc1dbaf552f"
     end
   end
 
   def install
-    if Hardware::CPU.arm?
-      bin.install "docs2md-darwin-arm64" => "docs2md"
-    elsif Hardware::CPU.intel?
-      bin.install "docs2md-darwin-x64" => "docs2md"
+    if OS.mac?
+      if Hardware::CPU.arm?
+        bin.install "docs2md-darwin-arm64" => "docs2md"
+      elsif Hardware::CPU.intel?
+        bin.install "docs2md-darwin-x64" => "docs2md"
+      end
+    elsif OS.linux?
+      if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+        bin.install "docs2md-linux-arm64" => "docs2md"
+      elsif Hardware::CPU.intel?
+        bin.install "docs2md-linux-x64" => "docs2md"
+      end
     end
   end
 
