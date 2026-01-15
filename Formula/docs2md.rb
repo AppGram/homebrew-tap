@@ -5,11 +5,11 @@ class Docs2md < Formula
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/AppGram/docs2md/releases/download/v1.0.0/docs2md-macos-arm64"
-      sha256 "122a13691903c046948698fb2ea1b72f693dc104a2e5c75f638804563c3f787d"
+      url "https://github.com/AppGram/docs2md/releases/download/v1.0.0/docs2md-darwin-arm64"
+      sha256 "94b27dd15e3db549eab007ffede5dddfd60ee64807249d09d275a11d9d5e0561"
     elsif Hardware::CPU.intel?
-      url "https://github.com/AppGram/docs2md/releases/download/v1.0.0/docs2md-macos-x64"
-      sha256 "0481c0843020411498424651ae7ca42a6206ff7afa9d0dbebb9b0a2c6f150e6e"
+      url "https://github.com/AppGram/docs2md/releases/download/v1.0.0/docs2md-darwin-x64"
+      sha256 "7da02aa51f7909108f3301588615a48f1932850c8842686dd3de6e169c7aa92e"
     end
   end
   
