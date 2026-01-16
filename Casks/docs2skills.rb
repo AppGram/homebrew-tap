@@ -1,34 +1,40 @@
 cask "docs2skills" do
   version "0.1.0"
-  sha256 "b5d4bf09ae739083b3187ef2b8b544df25f8ac36a9e046d664e2c10b84dc8270"
 
-  url "https://github.com/AppGram/doc2skills/releases/download/v#{version}/docs2skills_#{version}_aarch64.dmg"
+  on_arm do
+    sha256 "5e7f827b9a419d497e998aeb5c82b5fb029c0b09eaa989f109ac08abc21c4355"
+    url "https://github.com/AppGram/doc2skills/releases/download/v#{version}/docs2skills_#{version}_arm64.dmg"
+  end
+
+  on_intel do
+    sha256 :no_check
+    url "https://github.com/AppGram/doc2skills/releases/download/v#{version}/docs2skills_#{version}_x64.dmg"
+  end
+
   name "docs2skills"
-  desc "Convert documentation into AI-ready skills"
+  desc "Transform documentation into AI-optimized skills"
   homepage "https://docs2skills.com"
-
-  depends_on macos: ">= :big_sur"
 
   app "docs2skills.app"
 
+  binary "#{appdir}/docs2skills.app/Contents/Resources/bin/docs2md", target: "docs2skills"
+
   postflight do
-    # Install Playwright Chromium browser (required for JS-rendered pages)
-    system_command "/usr/bin/env",
-                   args: ["npx", "-y", "playwright", "install", "chromium"],
-                   sudo: false
+    system_command "/opt/homebrew/bin/npm", args: ["install", "-g", "playwright", "--force"], sudo: false rescue nil
+    system_command "/opt/homebrew/bin/npx", args: ["playwright", "install", "chromium"], sudo: false rescue nil
   end
 
   zap trash: [
     "~/Library/Application Support/docs2skills",
-    "~/.docs2skills",
+    "~/Library/Caches/docs2skills",
+    "~/Library/Preferences/com.appgram.docs2skills.plist",
+    "~/.config/docs2skills",
   ]
 
   caveats <<~EOS
-    docs2skills requires Playwright Chromium for JavaScript-rendered pages.
-    It will be installed automatically, or you can install manually:
-      npx playwright install chromium
+    After installation, authenticate with your license key:
+      docs2skills auth ds_your_license_key
 
-    You'll need a license key to use the app.
-    Get one at: https://docs2skills.com
+    Get a license at https://docs2skills.com
   EOS
 end
