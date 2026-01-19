@@ -11,7 +11,7 @@ class Logdump < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/appgram/logdump/releases/download/v1.0.0/logdump_1.0.0_darwin_amd64.tar.gz"
-      sha256 "67411b87f4d18e48cd9684848740469431bdb6b4010993b3ea48b1bbe6d96041"
+      sha256 "80523f1e2889df12f002c05b041dcf3f40ffdad48f1af796fb1c4e3a14b9f1cb"
 
       def install
         bin.install "logdump"
@@ -19,7 +19,7 @@ class Logdump < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/appgram/logdump/releases/download/v1.0.0/logdump_1.0.0_darwin_arm64.tar.gz"
-      sha256 "2341e8c6b1f96e9419fdb694555a5def052a92163452b396c941164fcc9328b2"
+      sha256 "fbb4b0ede7533838a1d9468b0f3bfee07a61c6c0c5f5d95357d0f7572759f6bf"
 
       def install
         bin.install "logdump"
@@ -30,14 +30,14 @@ class Logdump < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/appgram/logdump/releases/download/v1.0.0/logdump_1.0.0_linux_amd64.tar.gz"
-      sha256 "b884ba31606b3dcecd3399fd284628f65b9591869e2bfb23fecd2cd1269e7739"
+      sha256 "405afa06cdd11face08e54cfeb89e5e08b9fb2bc0df7b137923cf2b31bd707de"
       def install
         bin.install "logdump"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/appgram/logdump/releases/download/v1.0.0/logdump_1.0.0_linux_arm64.tar.gz"
-      sha256 "2a602537dbb85794e6f0c8f48bacfcb4f258857e8fdc51ce4d06eeed33d1276d"
+      sha256 "e1ab3751bb7d6317309fe768c1b541827009c2672346759a11a83a873d719bfa"
       def install
         bin.install "logdump"
       end
