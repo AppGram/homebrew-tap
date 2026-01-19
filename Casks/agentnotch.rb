@@ -1,8 +1,8 @@
 cask "agentnotch" do
-  version "1.1.1"
-  sha256 "b682716958817189fa86c8026b0cffafceef5d34c0871f465fcb6f4910576dcc"
+  version "1.1.2"
+  sha256 "d5ef71d5632065bca4a42dfe005b8bf1991b2b01b077c53b007e13d375c4541c"
 
-  url "https://github.com/AppGram/agentnotch/releases/download/v1.1.1/AgentNotch.zip"
+  url "https://github.com/AppGram/agentnotch/releases/download/v1.1.2/AgentNotch.zip"
   name "AgentNotch"
   desc "macOS menu bar app for AI coding assistant telemetry"
   homepage "https://github.com/AppGram/agentnotch"
