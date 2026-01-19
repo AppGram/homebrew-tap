@@ -5,21 +5,21 @@
 class Logdump < Formula
   desc "Real-time log aggregation tool with TUI and MCP server for AI agents"
   homepage "https://github.com/appgram/logdump"
-  version "1.0.0"
+  version "1.0.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/appgram/logdump/releases/download/v1.0.0/logdump_1.0.0_darwin_amd64.tar.gz"
-      sha256 "80523f1e2889df12f002c05b041dcf3f40ffdad48f1af796fb1c4e3a14b9f1cb"
+      url "https://github.com/appgram/logdump/releases/download/v1.0.1/logdump_1.0.1_darwin_amd64.tar.gz"
+      sha256 "9cae9ebfd45636070950de4bd9e0a88c21b778dd2c89cc7dd716fe7a76cbad41"
 
       def install
         bin.install "logdump"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/appgram/logdump/releases/download/v1.0.0/logdump_1.0.0_darwin_arm64.tar.gz"
-      sha256 "fbb4b0ede7533838a1d9468b0f3bfee07a61c6c0c5f5d95357d0f7572759f6bf"
+      url "https://github.com/appgram/logdump/releases/download/v1.0.1/logdump_1.0.1_darwin_arm64.tar.gz"
+      sha256 "5bfee425c22c1e8f0cf7c2d36c727f1e4de2335a0480ba46a2dff01ba0d92231"
 
       def install
         bin.install "logdump"
@@ -29,15 +29,15 @@ class Logdump < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/appgram/logdump/releases/download/v1.0.0/logdump_1.0.0_linux_amd64.tar.gz"
-      sha256 "405afa06cdd11face08e54cfeb89e5e08b9fb2bc0df7b137923cf2b31bd707de"
+      url "https://github.com/appgram/logdump/releases/download/v1.0.1/logdump_1.0.1_linux_amd64.tar.gz"
+      sha256 "1f6c6b481f5d3997d2c5f4684c0423c3177c1b02a023f3e3347ad61ab7f7859f"
       def install
         bin.install "logdump"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/appgram/logdump/releases/download/v1.0.0/logdump_1.0.0_linux_arm64.tar.gz"
-      sha256 "e1ab3751bb7d6317309fe768c1b541827009c2672346759a11a83a873d719bfa"
+      url "https://github.com/appgram/logdump/releases/download/v1.0.1/logdump_1.0.1_linux_arm64.tar.gz"
+      sha256 "dadf025d6f0ea2ba912c749c3e4ed482bce1f63f552c51497745f57a58c7b82c"
       def install
         bin.install "logdump"
       end
